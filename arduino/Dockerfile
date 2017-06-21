@@ -8,7 +8,7 @@ Run echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true 
 # install Oracle Java 8 and some helper utilities
 RUN apt-add-repository ppa:webupd8team/java -y && \
     apt-get update -qq && \
-    apt-get install -y oracle-java8-installer oracle-java8-set-default wget nano && \
+    apt-get install -y oracle-java8-installer oracle-java8-set-default wget nano xdg-utils && \
 
 # clean up
     apt-get clean && apt-get autoremove && \
@@ -25,3 +25,5 @@ RUN (wget -q -O- https://downloads.arduino.cc/arduino-${ARDUINO_IDE_VERSION}-lin
 RUN useradd -m desktop
 COPY ["Aurdino.desktop", "/home/desktop/Desktop/"]
 RUN chown -R desktop:desktop /home/desktop
+
+COPY ["local-entrypoint.sh", "/"]
