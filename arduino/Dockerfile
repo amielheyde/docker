@@ -15,7 +15,7 @@ RUN apt-add-repository ppa:webupd8team/java -y && \
     rm -rf /var/lib/apt/lists/*
 
 # install Arduino IDE
-ENV ARDUINO_IDE_VERSION 1.8.1
+ENV ARDUINO_IDE_VERSION 1.8.3
 RUN (wget -q -O- https://downloads.arduino.cc/arduino-${ARDUINO_IDE_VERSION}-linux64.tar.xz \
 	| tar xJC /opt \
 	&& ln -s /opt/arduino-${ARDUINO_IDE_VERSION} /opt/arduino \
