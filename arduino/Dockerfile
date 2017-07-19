@@ -8,7 +8,7 @@ Run echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true 
 # install Oracle Java 8 and some helper utilities
 RUN apt-add-repository ppa:webupd8team/java -y && \
     apt-get update -qq && \
-    apt-get install -y oracle-java8-installer oracle-java8-set-default wget nano xdg-utils && \
+    apt-get install -y oracle-java8-installer oracle-java8-set-default wget nano xdg-utils libnss-mdns && \
 
 # clean up
     apt-get clean && apt-get autoremove && \
