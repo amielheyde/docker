@@ -21,6 +21,11 @@ RUN (wget -q -O- https://downloads.arduino.cc/arduino-${ARDUINO_IDE_VERSION}-lin
 	&& ln -s /opt/arduino-${ARDUINO_IDE_VERSION} /opt/arduino \
 	&& ln -s /opt/arduino-${ARDUINO_IDE_VERSION}/arduino /usr/local/bin/arduino)
 
+# add SPIFFS tool
+RUN wget -q -O- https://github.com/esp8266/arduino-esp8266fs-plugin/releases/download/0.3.0/ESP8266FS-0.3.0.zip > /tmp/spiffs-tools.zip && \
+	unzip /tmp/spiffs-tools.zip -d /opt/arduino/tools/ && \
+	rm -f /tmp/spiffs-tools.zip
+
 # create desktop user and launcher icon
 RUN useradd -m desktop
 COPY ["Aurdino.desktop", "/home/desktop/Desktop/"]
