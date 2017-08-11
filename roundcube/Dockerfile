@@ -4,7 +4,7 @@ MAINTAINER Joachim Wickman <joachim@wickman.in>
 
 EXPOSE 80 443
 
-ENV ROUNDCUBE_VERSION 1.2.3
+ENV ROUNDCUBE_VERSION 1.2.5
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -qq && \
