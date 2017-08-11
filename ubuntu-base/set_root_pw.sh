@@ -10,12 +10,13 @@ _word=$( [ ${ROOT_PASS} ] && echo "preset" || echo "random" )
 echo "=> Setting a ${_word} password to the root user"
 echo "root:$PASS" | chpasswd
 
-adduser --disabled-password --gecos "" --quiet desktop
-adduser desktop sudo
-DPASS=$(pwgen -s 12 1)
+adduser --disabled-password --gecos "" -s /bin/bash --quiet $USER
+adduser $USER sudo
+DPASS=${USER_PASS:-$(pwgen -s 12 1)}
 
-echo "=> Setting a password to the desktop user"
-echo "desktop:$DPASS" | chpasswd
+_word=$( [ ${USER_PASS} ] && echo "preset" || echo "random" )
+echo "=> Setting a ${_word} password to the $USER user"
+echo "$USER:$DPASS" | chpasswd
 
 
 echo "=> Done!"
@@ -25,9 +26,11 @@ echo "========================================================================"
 echo "You can now connect to this Ubuntu container via SSH using:"
 echo ""
 echo "    ssh -p <port> root@<host>"
-echo "and enter the root password '$PASS' when prompted"
 echo ""
-echo " desktop password : $DPASS "
+echo " root password : $PASS "
+echo ""
+echo " $USER password : $DPASS "
+echo ""
 echo "use this to connect to the x2go server from your x2go client!"
 echo "Please remember to change the above password as soon as possible!"
 echo "========================================================================"
