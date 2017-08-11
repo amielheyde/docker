@@ -18,6 +18,7 @@ RUN useradd -m $USER && \
     wget -q -O /tmp/eagle-lin64-7.5.0.run http://web.cadsoft.de/ftp/eagle/program/7.5/eagle-lin64-7.5.0.run && \
     chmod +x /tmp/eagle-lin64-7.5.0.run && \
     /tmp/eagle-lin64-7.5.0.run /opt && \
+    ln -s eagle-7.5.0 /opt/eagle && \
     chown -R $USER:$USER $HOME && \
     chown -R $USER:$USER /opt/eagle*
 
@@ -26,3 +27,5 @@ RUN wget -q -O /tmp/sparkfun-libs-master.zip https://github.com/sparkfun/SparkFu
 
 VOLUME $HOME/Documents
 WORKDIR $HOME
+
+COPY ["eagle.desktop", "/usr/share/applications/"]

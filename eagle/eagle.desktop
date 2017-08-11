@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=7.5.0
+Name=Eagle
+GenericName=Eagle
+Comment=Electronic Design Automation software
+Exec=/opt/eagle/bin/eagle
+Icon=/opt/eagle/bin/eagleicon50.png
+Terminal=false
+Type=Application
+Categories=Development;IDE;Electronics;EDA;
+X-SuSE-translate=false
+StartupNotify=true
+Categories=PCB;
