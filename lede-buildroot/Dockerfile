@@ -15,16 +15,11 @@ RUN apt-get update -y -qq && \
 
 # add user
     useradd -m lede && \
-    echo 'lede ALL=NOPASSWD: ALL' > /etc/sudoers.d/lede
+    echo 'lede ALL=NOPASSWD: ALL' > /etc/sudoers.d/lede && \
+    chown lede:lede -R /home/lede
 
 USER lede
-
-# clone LEDE repo
-RUN cd ~ && git clone --depth=1 https://git.lede-project.org/source.git && \
-    cd source && \
-    git fetch --tags && \
-    git checkout v17.01.3 && \
-    ./scripts/feeds update -a && \
-    ./scripts/feeds install -a
-
+WORKDIR /home/lede
+COPY ["entrypoint.sh", "/"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/bin/bash"]
