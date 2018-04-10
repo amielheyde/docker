@@ -27,3 +27,9 @@ Example how to run the container with an external database.
       -v /disk/zoneminder/logs:/var/log/zm \
       --name zoneminder \
       jokke/zoneminder
+
+## Roadmap
+
+* Replace Apache with nginx
+* Switch base image to Alpine
+
