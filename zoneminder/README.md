@@ -11,7 +11,7 @@ This is a docker container which builds ZoneMinder from master branch (bleeding 
 
 Build the container
 
-    docker build --rm -t jokke/zoneminder .
+    docker build --rm -t floppe/zoneminder .
 
 Example how to run the container with an external database.
 
@@ -26,7 +26,7 @@ Example how to run the container with an external database.
       -v /disk/zoneminder/images:/var/lib/zoneminder/images \
       -v /disk/zoneminder/logs:/var/log/zm \
       --name zoneminder \
-      jokke/zoneminder
+      floppe/zoneminder
 
 ## Roadmap
 
