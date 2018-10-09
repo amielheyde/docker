@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 MAINTAINER Joachim Wickman <joachim@wickman.in>
 
